@@ -2,5 +2,5 @@
     <string name="app_name">TalkToMe</string>
     <string name="huanxin_key">1123170602115123#ppandroid-im</string>
     <string name="msg_empty">姓名或者密码不能为空</string>
-    <!---->
+    <string name="msg_rigster_success">注册成功,为您自动登录</string>
 </resources>
