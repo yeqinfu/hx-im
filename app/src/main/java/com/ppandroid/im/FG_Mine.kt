@@ -4,6 +4,7 @@ import android.content.Intent
 import com.hyphenate.chat.EMClient
 import com.ppandroid.im.base.AC_ContentFG
 import com.ppandroid.im.base.FG_Base
+import com.ppandroid.im.mine.FG_FindFriends
 import com.ppandroid.im.utils.Utils_UserInfo
 import kotlinx.android.synthetic.main.fg_mine.*
 
@@ -23,7 +24,7 @@ class FG_Mine: FG_Base() {
             startActivity(it)
         }
         btn_search.setOnClickListener {
-            var it=AC_ContentFG.createIntent(activity,FG_FindFriends::class.java.name)
+            var it=AC_ContentFG.createIntent(activity, FG_FindFriends::class.java.name)
             startActivity(it)
         }
     }

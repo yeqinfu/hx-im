@@ -1,11 +1,13 @@
 package com.ppandroid.im
 
 import android.app.Application
+import android.content.Context
 import com.hyphenate.EMCallBack
 import com.hyphenate.chat.EMClient
 import com.hyphenate.chat.EMOptions
 import com.hyphenate.easeui.controller.EaseUI
 import com.ppandroid.im.bean.ET_APP
+import com.ppandroid.im.utils.AppExceptionHandler
 import com.ppandroid.im.utils.DebugLog
 import com.ppandroid.im.utils.Utils_UserInfo
 import org.greenrobot.eventbus.EventBus
@@ -18,7 +20,22 @@ import org.greenrobot.eventbus.ThreadMode
  */
 
 class APP : Application() {
+
+
+    companion object {
+        var context:Application?= null
+        fun getContext(): Context? {
+            return context
+        }
+    }
+
     override fun onCreate() {
+        context = this@APP
+        /*****************************************************************
+         * 闪退处理
+         *****************************************************************/
+        val mReportAppError = AppExceptionHandler.getInstance()
+        mReportAppError.init(this)
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this)
         }
